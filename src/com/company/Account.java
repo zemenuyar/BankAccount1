@@ -5,7 +5,7 @@ public class Account {
     private String username;
     private double balance;
     private  int PIN;
-    private int with
+    private int withdrawal;
 
     public Account(int number, String username, double balance, int PIN) {
         this.number = number;
@@ -47,9 +47,15 @@ public class Account {
     }
 
     public Account() {
+    }
 
+    public void deposit(double amount){
+        balance = balance + amount;
+    }
 
-
+    public void withdrawal(double Amount) {
+        balance = balance - Amount;
+    }
 
     }
-}
+

@@ -32,10 +32,32 @@ public class Main {
     }// END MAIN METHOD
 
     public static boolean checkAccount(ArrayList<Account> myAccount, int userInputPINtNumber, int userAccountNum) {
+
+        Scanner Sc = new Scanner(System.in);
+
         for (Account newaccount: myAccount){
-            if(newaccount.getPIN()==userInputPINtNumber && newaccount.getNumber()==userAccountNum){
-                System.out.println("It is working!!");
+            if(newaccount.getPIN()==userInputPINtNumber && newaccount.getNumber()==userAccountNum) {
+                //System.out.println("It is working!!");
                 double current = newaccount.getBalance();
+                System.out.println("do you want to deposit or withdrawal");
+                String userInput = Sc.next();// userInput == "deposti"
+                if (userInput.equalsIgnoreCase("deposit")){
+                    System.out.println("crurrent balance = " + newaccount.getBalance());
+                    System.out.println("how much you want deposit");
+                    double deposit = Sc.nextDouble(); // deopsit = 100
+                    System.out.println(" new balance");
+                    double newbalance = newaccount.getBalance() + deposit;
+                    System.out.println(newbalance);
+                }else if (userInput.equalsIgnoreCase("withdrawal")) {
+                    System.out.println("crurrent balance = " + newaccount.getBalance());
+                    System.out.println("how much you want withdrawal");
+                    double withdrawal = Sc.nextDouble();
+                    System.out.println(" new balance");
+                    double newbalance = newaccount.getBalance() - withdrawal;
+                    System.out.println(newbalance);
+                }
+            }
+/*
 //                PRINT OUT THE CURRENT BALANCE
 //                PROMPT USER - TO DEPOSIT OR WITHDRAW
 //                    Store it in a variable
@@ -47,22 +69,30 @@ public class Main {
 //                            how much you want to deposit
 //                            store it in a variable = depositAmount
 //                            double depositTotal = current - withdrawAmount;
-                newaccount.getBalance()-newaccount.
+//                newaccount.getBalance()-newaccount.
 
-                Scanner Sc = new Scanner(System.in);
-                System.out.println("Enter the balance");
-                userInputPINtNumber = Sc.nextInt();
+
+//                System.out.println("Enter the balance");
+//                double userInputBalance = Sc.nextDouble();
+                System.out.println("deposit amount");
+                double userDepositAmount = Sc.nextDouble();
+                newaccount.deposit(userDepositAmount);
+                System.out.println(newaccount.getBalance());
+//                System.out.println("would you like to deposit more Y(yes)or N(no)");
+//                userDepositAmount = Sc.nextDouble();
+            }else if (newaccount.withdrawal())
                 System.out.println("withdrawal amount");
-                userInputPINtNumber = Sc.nextInt();
-                System.out.println("balance - withdrawal");
-                System.out.println("new balance = balance - withdrawal amount");
+                double usrWithdrawalAmount = Sc.nextDouble();
+                newaccount.withdrawal(usrWithdrawalAmount);
+                System.out.println(newaccount.getBalance());
+//                System.out.println("balance - withdrawal");
+//                System.out.println("new balance = balance - withdrawal amount");
 
+*/
 
                 return true;
             }
-        }
         return false;
     }
-
 
 }
